@@ -1,0 +1,147 @@
+
+
+
+1) Work out car charging priority. 
+2) Order into an array based on charge time needed (in hours)  / charge time available for (amount of hours the car is on site to charge) = priority number. 
+		IF 2 or more cars have the same  priority number prioritize based on earliest leaving time.
+3) Starting from highest prio car, check solar availability from leaving hour backwards.
+4) For each cell we check if solar power is available (at least 11kwh) if YES add the car to this hour on the schedule and lower the power available(variable in array) in this col by 11kwh. 
+
+			IF NO then go back one hour(cell) and check again. etc. /////////When this If statement is run, run another method that adds a 'not possible to use only solar energy alert, with efficiency % solar to grid)////////
+      
+      		IF (variable charing hours needed) is greater than 0 run a new loop from this cars finish time that will check each cell from highest amount of solar energy 
+          left available and fill those cells until charge hours needed is 0. During this loop, a new class is added that indicates gird is being used. 
+          
+          to calc grid power used = 11 - Solar panel charge available. 
+          (If we want an extra challenge, add the amount of grid power being used on red blocks).
+
+        
+
+
+
+3 classes for solar / gird / mixed - Green, red, yellow. 
+
+Variables needed :
+
+Arrays []
+- Solar panel charge per hour (total) [40, 50, 60, 70, 80, 70, 70, 60, 50]
+- Solar panel power used  e.g [0,0,0,0,0]
+- Solar panel charge remaning [0,0,0,0,0, ]
+- Car priority list [car 1, car4, car5, car3 etc]
+- Grid power used []  ///// This array is used to calculate the amount of grid power used when there is not enough soalr energy /////
+
+Variables -
+
+let Car x charge hours needed.
+let car x available charging hours. 
+let car leaving time. 
+
+
+
+
+
+
+
+
+
+
+To figure out car charging priority, take range required and divide it by amount of hours possible to charge (start time - leave time   e.g 10.00am-2.00pm = 4 hours.)
+   miles needed / charge time = charge per hour needed.   >>> Put the cars in an array from highest lowest. >>>> Add to the schedule starting from leave time backwards.
+   
+   car 1 needs 100 miles - 3 horus needed -  start time  -  finish time 13.00 
+   car 2 needs 100 miles - 3 hours needed - start time   - finish time 15.00 
+   
+   if both cars have same amount of charge hours, if statement to handle earliest leaver. 
+
+		count down hours charge needed when a cell is filled per car.
+    check each cell if there is available charge or not.
+    variable for amount of cells we can use (based on start / leave time) 
+    
+    If car cannot be charged by green power, loop through cells again and see which has the highest remaning energy. 
+    
+	
+
+Add these cars to an array in order of priority. 
+
+
+
+Work backward from leaving time. 
+Check if a full solar charge is possible for all cars added, or not.
+If impossible, add a 'most efficient' table output with efficiency %.
+Start charging with 'most urgent' car first (earliest leaving time). - Order this into an array, then loop over them in that order for 
+
+
+  powerUsed(colPower[colCount], colPowerUsed[colCount]);
+                if (powerLeft > 11) {
+
+
+
+prioty = 1st leave time 2nd time to charge
+
+sort by leave time, then by time to charge like alphabetical firstname, then surname.
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<< Change key values to good table header names >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
+
+
+
+ 
+
+
+/loop through first table to get datas
+$("#table_id tbody tr").each(function() {
+//get required datas
+  var car1_name = $(this).find(".name").text();
+  var mtnc = $(this).find(".mtnc").val();
+  var charges = $(this).find(".charge").text();
+  var times = $(this).find('.time').val();
+//get hours i.e : 11:30 so take "11"
+  var hrs = times.split(":")[0]-1;
+ //get leaves
+  var leaves = parseInt(hrs - charges);
+
+
+  //loop through second table starting from tr eq 0
+   $("#table_id_2 tbody tr:eq(" + count + ")").each(function() {
+    $(this).find("td:eq(0)").text(car1_name);//set car_name
+//if hrs = 11 and leaves = 2 so loop from 11 -10-9-8..
+    for (var i = hrs; i > leaves; i--) {
+    //add bg to that td
+      $(this).find("td[value=" + i + "]").css({
+        "background-color": "#00417b"
+      });;
+    }
+
+
+Method to work out how many miles are needed / charge required. 
+Method to work out how much solar power is available. 
+Method to check car leaving time.
+Method to check if there is enough solar power to charge car to required miles + 10%.
+Method to handle when solar power isn't available. 
+Prioritise earlier to latest leaver. 
+Calculation to ensure solar can charge all required cars - if impossible, grid power needed. 
+Add an effiiciency % solar vs mains. 
+
+
+
+  
+    var miles = Math.ceil(parseInt(((mtnc - cmra) + (mtnc - cmra / 10)) / 44));
+    
+    
+     let chargeNeeded = Math.ceil((carInfo[x][2] - carInfo[x][1]) * 1.10);
+        let chargeTime = Math.ceil((chargeNeeded / 44));
+      
+        
+        
+          powerUsed(colPower[colCount], colPowerUsed[colCount]);
+                if (powerLeft > 11) {

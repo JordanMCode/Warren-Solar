@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>
+        Warren Solar Charging Challenge
+    </title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <h2>Solar Charging Info</h2>
+    <main>
+        <!-- <div class="input-container"></div> -->
+
+        <div class="input-container">
+            <div class="info-input">
+                <div class="info-input-sub">
+                    <h2>Car Information Input</h2>
+                    <p>Car Registration</p>
+                    <input class="reg-input">
+                    <p>Current Range</p>
+                    <input class="current-range">
+                    <p>Range Needed for trip</p>
+                    <input class="range-needed">
+                </div>
+                <div class="info-input-sub">
+                    <p>Start time</p>
+                    <select name="timestart" id="start-time">
+
+                        <option value="07:00:00">7:00 am</option>
+                        <option value="08:00:00">8:00 am</option>
+                        <option value="09:00:00">9:00 am</option>
+                        <option value="10:00:00">10:00 am</option>
+                        <option value="11:00:00">11:00 am</option>
+                        <option value="12:00:00">12:00 pm</option>
+                        <option value="13:00:00">1:00 pm</option>
+                        <option value="14:00:00">2:00 pm</option>
+                        <option value="15:00:00">3:00 pm</option>
+                        <option value="16:00:00">4:00 pm</option>
+                    </select>
+                    <p>Leave time</p>
+                    <select name="timestop" id="end-time">
+                        <option value="08:00:00">8:00 am</option>
+                        <option value="09:00:00">9:00 am</option>
+                        <option value="10:00:00">10:00 am</option>
+                        <option value="11:00:00">11:00 am</option>
+                        <option value="12:00:00">12:00 pm</option>
+                        <option value="13:00:00">1:00 pm</option>
+                        <option value="14:00:00">2:00 pm</option>
+                        <option value="15:00:00">3:00 pm</option>
+                        <option value="16:00:00">4:00 pm</option>
+                        <option value="17:00:00">5:00 pm</option>
+                    </select>
+
+                    <p> </p>
+                    <button class="submit">Submit</button>
+                    <button class="generate-schedule-btn" id="generate-schedule-btn">Generate Schedule</button>
+                    <button class="clear-schedule-btn" id="clear-btn">Clear Schedule</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-container">
+
+            <div class="schedule-table table-wrapper">
+
+                <table class="fl-table" id="info-table">
+                </table>
+
+                <table class="fl-table hidden" id="genTable">
+                    <thead>
+                        <tr>
+                            <th>Car Registration</th>
+                            <th>7-8</th>
+                            <th>8-9</th>
+                            <th>9-10</th>
+                            <th>10-11</th>
+                            <th>11-12</th>
+                            <th>12-13</th>
+                            <th>13-14</th>
+                            <th>14-15</th>
+                            <th>15-16</th>
+                            <th>16-17</th>
+                            <th>Exit Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="car-1-row">
+                            <td class="car-reg-1"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-1"></td>
+                        </tr>
+                        <tr class="car-2-row">
+                            <td class="car-reg-2"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-2"></td>
+                        </tr>
+                        <tr class="car-3-row">
+                            <td class="car-reg-3"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-3"></td>
+                        </tr>
+                        <tr class="car-4-row">
+                            <td class="car-reg-4"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-4"></td>
+                        </tr>
+                        <tr class="car-5-row">
+                            <td class="car-reg-5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-5"></td>
+                        </tr>
+                        <tr class="car-6-row">
+                            <td class="car-reg-6"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="exit-6"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hidden" id="key">
+                <h2>Key</h2>
+                <div class="solar">
+                    <p>Utilizing Solar</p>
+                </div>
+                <div class="non-solar">
+                    <p>Utilizing Mains</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="js/test3.js"></script>
+</body>
+
+</html>
